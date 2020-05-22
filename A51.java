@@ -4,18 +4,23 @@ the ones and zeros repersent sample key in binary, you can copy it to try the pr
  */
 
 package a51;
-import java.util.Scanner;
+import java.util.Scanner; // used for obtaining the input data from keyboard
 
 public class A51 {
 
- private String key = null;  
- static final int REG_X_LENGTH = 19;    
- static final int REG_Y_LENGTH = 22;    
- static final int REG_Z_LENGTH = 23;    
- int[] regX = new int[REG_X_LENGTH];    
- int[] regY = new int[REG_Y_LENGTH];    
- int[] regZ = new int[REG_Z_LENGTH];    
-
+ private String key = null;  // create string varaible for key
+ static final int REG_X_LENGTH = 19;    // create int varaible for the lenght of register X whiche equal 19
+ static final int REG_Y_LENGTH = 22;    //create int varaible for the lenght of register Y whiche equal 22
+ static final int REG_Z_LENGTH = 23;    //create int varaible for the lenght of register Z whiche equal 23
+ int[] regX = new int[REG_X_LENGTH];    //declare array to repersent register X with size 19
+ int[] regY = new int[REG_Y_LENGTH];    //declare array to repersent register Y with size 22
+ int[] regZ = new int[REG_Z_LENGTH];    //declare array to repersent register Z with size 23
+/**
+	*  loadRegisters functoin is used to load the value of key to the three registers.
+	*  The Integer.parseInt() method is used to parse the String key argument into an Integer object. 
+	*  substring method is used to take subset of of the key. Then the Integer.parseInt() convert 
+	*  the subset of key into integer and store it in index i in the array  
+*/
  void loadRegisters(String key) {
 	for (int i = 0; i < REG_X_LENGTH; i++)
 	 regX[i] = Integer.parseInt(key.substring(i, i + 1));
