@@ -32,6 +32,10 @@ public class A51 {
  }
 
  
+ /**
+	* -setKey function used to ensure the validity of the key and assign the value of the key to the key variable 
+	* -If valid 64-bit binary key, set it and return true else just return false
+	*/
  boolean setKey(String key) {
 	if (key.length() == 64 && key.matches("[01]+")) {
 	 this.key = key;
@@ -40,18 +44,26 @@ public class A51 {
 	}
 	return false;
  }
+ /**
+	* - getKey function  used to get the value of the key from keyboard and store it in the variable "key"
+	*/
+ 
  String getKey() { 
 	return this.key;
  }
-  
+  /**
+	* - encrypt function is used to encrypt the plaintext to produce the ciphertext
+	* - 
+	*/
  String encrypt(String plaintext) {
-	StringBuilder s = new StringBuilder();	
-	int[] binary = this.toBinary(plaintext);	
-	int[] keystream = getKeystream(binary.length);	
-	for (int i = 0; i < binary.length; i++)	
-	 s.append(binary[i] ^ keystream[i]);	
-	return s.toString();	
+	StringBuilder s = new StringBuilder();	// create an object s from StringBuilder class 
+	int[] binary = this.toBinary(plaintext);	//convert the plaintext from string type to binary
+	int[] keystream = getKeystream(binary.length);	// create keystream equal the lenght of the plaintext after convert it to binary 
+	for (int i = 0; i < binary.length; i++)	// for loop 
+	 s.append(binary[i] ^ keystream[i]);	// append method used to append the binary values after XOR the keystream with the binary plaintext
+	return s.toString();	// encrypt function return the appended value in string type
  }
+ 
  
 
  int[] getKeystream(int length) {
